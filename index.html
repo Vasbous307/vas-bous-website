@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VAS BOUS | Photography</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #080808;
+            color: white;
+        }
+
+        /* NAVIGATION */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 22px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(8,8,8,0.85);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 800;
+            letter-spacing: 4px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            opacity: 0.6;
+        }
+
+        /* HERO */
+        .hero {
+            height: 100vh;
+            min-height: 650px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+            background:
+                linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.75)),
+                url("https://images.unsplash.com/photo-1452780212940-6f5c0d14d848?auto=format&fit=crop&w=2000&q=90")
+                center/cover;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(55px, 10vw, 130px);
+            letter-spacing: 10px;
+            font-weight: 900;
+        }
+
+        .hero-content p {
+            margin-top: 20px;
+            font-size: 18px;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+        }
+
+        .hero-button {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 15px 35px;
+            border: 1px solid white;
+            color: white;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        .hero-button:hover {
+            background: white;
+            color: black;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 110px 7%;
+        }
+
+        .section-title {
+            font-size: 42px;
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+        }
+
+        .section-subtitle {
+            color: #999;
+            margin-bottom: 50px;
+        }
+
+        /* GALLERY */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .photo {
+            height: 420px;
+            overflow: hidden;
+            background: #151515;
+        }
+
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .6s;
+        }
+
+        .photo:hover img {
+            transform: scale(1.08);
+        }
+
+        /* ABOUT */
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: #bbb;
+            line-height: 1.9;
+            font-size: 17px;
+        }
+
+        .about-image {
+            height: 500px;
+            background:
+                url("https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=90")
+                center/cover;
+        }
+
+        /* SERVICES */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .service {
+            border: 1px solid #292929;
+            padding: 40px 30px;
+            min-height: 220px;
+            transition: .3s;
+        }
+
+        .service:hover {
+            background: #151515;
+            transform: translateY(-5px);
+        }
+
+        .service h3 {
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        .service p {
+            color: #999;
+            line-height: 1.7;
+        }
+
+        /* CONTACT */
+        .contact {
+            text-align: center;
+        }
+
+        .contact p {
+            color: #aaa;
+            margin: 15px 0;
+        }
+
+        .contact a {
+            color: white;
+            text-decoration: none;
+            font-size: 22px;
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid #222;
+            padding: 30px 7%;
+            display: flex;
+            justify-content: space-between;
+            color: #777;
+            font-size: 13px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 800px) {
+
+            nav {
+                padding: 18px 5%;
+            }
+
+            nav a {
+                margin-left: 12px;
+                font-size: 11px;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .photo {
+                height: 500px;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .services {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                height: 400px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">VAS BOUS</div>
+
+        <div>
+            <a href="#portfolio">PORTFOLIO</a>
+            <a href="#about">ABOUT</a>
+            <a href="#contact">CONTACT</a>
+        </div>
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>VAS BOUS</h1>
+
+            <p>Photography • Visual Stories</p>
+
+            <a href="#portfolio" class="hero-button">
+                VIEW MY WORK
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio">
+
+        <h2 class="section-title">PORTFOLIO</h2>
+
+        <p class="section-subtitle">
+            Selected photography
+        </p>
+
+        <div class="gallery">
+
+            <div class="photo">
+                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1000&q=90">
+            </div>
+
+            <div class="photo">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1000&q=90">
+            </div>
+
+            <div class="photo">
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=90">
+            </div>
+
+            <div class="photo">
+                <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?auto=format&fit=crop&w=1000&q=90">
+            </div>
+
+            <div class="photo">
+                <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1000&q=90">
+            </div>
+
+            <div class="photo">
+                <img src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1000&q=90">
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about">
+
+        <div class="about">
+
+            <div class="about-text">
+
+                <h2 class="section-title">
+                    ABOUT ME
+                </h2>
+
+                <p>
+                    I am VAS BOUS, a photographer focused on
+                    capturing authentic moments, emotions and
+                    stories through photography.
+                </p>
+
+                <br>
+
+                <p>
+                    From people and events to landscapes and
+                    special moments, my goal is to create images
+                    that feel timeless and personal.
+                </p>
+
+            </div>
+
+            <div class="about-image"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SERVICES -->
+    <section>
+
+        <h2 class="section-title">
+            SERVICES
+        </h2>
+
+        <p class="section-subtitle">
+            Photography services
+        </p>
+
+        <div class="services">
+
+            <div class="service">
+                <h3>EVENTS</h3>
+                <p>
+                    Professional photography for events,
+                    celebrations and special occasions.
+                </p>
+            </div>
+
+            <div class="service">
+                <h3>PORTRAITS</h3>
+                <p>
+                    Natural and professional portraits
+                    with a modern visual style.
+                </p>
+            </div>
+
+            <div class="service">
+                <h3>SPORTS</h3>
+                <p>
+                    Dynamic sports photography capturing
+                    action, emotion and atmosphere.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+
+        <h2 class="section-title">
+            LET'S WORK TOGETHER
+        </h2>
+
+        <p>
+            For bookings and collaborations
+        </p>
+
+        <br>
+
+        <a href="mailto:your@email.com">
+            your@email.com
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <span>© 2026 VAS BOUS Photography</span>
+
+        <span>All Rights Reserved</span>
+
+    </footer>
+
+</body>
+</html>
